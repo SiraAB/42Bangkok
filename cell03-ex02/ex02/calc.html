@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 450px;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 5px;
+            border: black 3px solid;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="leftInp" placeholder="Left Member" />
+
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <input type="text" id="rightInp" placeholder="Right Member" />
+
+    <button onclick="calc()">Try me!</button>
+
+    <script>
+        function calc() {
+            const leftInput = document.getElementById('leftInp').value;
+            const operator = document.getElementById('operator').value;
+            const rightInput = document.getElementById('rightInp').value;
+    
+            if (isValidInput(leftInput) && isValidInput(rightInput)) {
+                const result = calculate(parseInt(leftInput), operator, parseInt(rightInput));
+    
+                if (!isNaN(result)) {
+                    console.log(result);
+                    alert(`The result ${result}`);
+                } else {
+                    alert("It's over 9000!");
+                }
+            } else {
+                alert("Error :(");
+            }
+        }
+    
+        function isValidInput(value) {
+            return /^[0-9]+$/.test(value);
+        }
+    
+        // function calculate(left, operator, right) {
+        //     switch (operator) {
+        //         case '+':
+        //             return left + right;
+        //         case '-':
+        //             return left - right;
+        //         case '*':
+        //             return left * right;
+        //         case '/':
+        //             if (right === 0) {
+        //                 alert("It's over 9000!");
+        //                 return NaN;
+        //             }
+        //             return left / right;
+        //         case '%':
+        //             if (right === 0) {
+        //                 alert("It's over 9000!");
+        //                 return NaN;
+        //             }
+        //             return left % right;
+        //         default:
+        //             return NaN;
+        //     }
+        // }
+    
+
+        function calculate(left, operator, right) {
+            if (operator === '+') {
+                return left + right;
+            } else if (operator === '-') {
+                return left - right;
+            } else if (operator === '*') {
+                return left * right;
+            } else if (operator === '/') {
+                if (right === 0) {
+                    alert("It's over 9000!");
+                    return NaN;
+                }
+                return left / right;
+            } else if (operator === '%') {
+                if (right === 0) {
+                    alert("It's over 9000!");
+                    return NaN;
+                }
+                return left % right;
+            } else {
+                return NaN;
+            }
+        }
+        setInterval(function() {
+            alert("Please, use me...");
+        }, 30000);
+
+        // let idleTimer;
+
+        // function resetIdleTimer() {
+        //     clearTimeout(idleTimer);
+        //     idleTimer = setTimeout(function() {
+        //         alert("Please, use me...");
+        //     }, 30000);
+        // }
+
+        // document.addEventListener('mousemove', resetIdleTimer);
+
+        // resetIdleTimer();
+    </script>
+</body>
+</html>

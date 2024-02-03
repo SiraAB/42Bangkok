@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.parallax {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sec1 {
+    height: 100vh;
+    background-image: url('https://images3.alphacoders.com/266/266089.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
+
+.sec2 {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
+
+.sec3 {
+    height: 100vh;
+    background-image: url('https://4kwallpapers.com/images/wallpapers/samurai-katana-warrior-immortal-sun-silhouette-black-1920x1080-7471.png');
+    transform: rotate(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
+
+.sec3 p {
+    transform: rotate(180deg);
+}

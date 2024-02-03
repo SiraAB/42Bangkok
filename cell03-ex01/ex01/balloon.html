@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        .balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;   
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon" onclick="changeBalloonProperties()" onmouseout="growBalloon()"></div>
+
+    <script>
+        let balloonSize = 200;
+        let currentColorIndex = 0;
+    
+        function changeBalloonProperties() {
+            balloonSize += 10;
+    
+            const colors = ['red', 'green', 'blue'];
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            const newColor = colors[currentColorIndex];
+    
+            document.querySelector('.balloon').style.width = balloonSize + 'px';
+            document.querySelector('.balloon').style.height = balloonSize + 'px';
+            document.querySelector('.balloon').style.backgroundColor = newColor;
+    
+            if (balloonSize > 420) {
+                balloonSize = 200;
+                document.querySelector('.balloon').style.width = balloonSize + 'px';
+                document.querySelector('.balloon').style.height = balloonSize + 'px';
+            }
+        }
+        function growBalloon() {
+            balloonSize -= 5;
+
+            const colors = ['blue', 'green', 'red'];
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            const newColor = colors[currentColorIndex];
+
+            document.querySelector('.balloon').style.width = balloonSize + 'px';
+            document.querySelector('.balloon').style.height = balloonSize + 'px';
+            document.querySelector('.balloon').style.backgroundColor = newColor;
+
+            if (balloonSize < 200) {
+                balloonSize = 200;
+                document.querySelector('.balloon').style.width = balloonSize + 'px';
+                document.querySelector('.balloon').style.height = balloonSize + 'px';
+            }
+        }
+    </script>
+</body>
+</html>
